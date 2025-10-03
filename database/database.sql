@@ -4,7 +4,7 @@ USE SoftDinner;
 
 CREATE TABLE Recibo 
 (
-  idRecibo INT AUTO_INCREMENT PRIMARY KEY,
+  idRecibo INT  PRIMARY KEY,
   fechaRecibo DATE NOT NULL,
   idOrden INT NOT NULL,
   idCliente INT NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE Recibo
 
 CREATE TABLE Mesa 
 (
-  idMesa INT AUTO_INCREMENT PRIMARY KEY,
+  idMesa INT  PRIMARY KEY,
   estatusMesa ENUM('Disponible', 'Ocupada', 'Reservada') NOT NULL,
   estatusPedidoMesa ENUM('Pendiente', 'En Proceso', 'Servido') NOT NULL,
   numeroClientes TINYINT UNSIGNED NOT NULL
@@ -22,13 +22,13 @@ CREATE TABLE Mesa
 
 CREATE TABLE Cliente 
 (
-  idCliente INT AUTO_INCREMENT PRIMARY KEY,
+  idCliente INT  PRIMARY KEY,
   fechaCompra DATE
 );
 
 CREATE TABLE reporteGanancia 
 (
-  idCostos INT AUTO_INCREMENT PRIMARY KEY,
+  idCostos INT  PRIMARY KEY,
   costAguaSemanal DECIMAL(10,2) NOT NULL,
   costRentaSemanal DECIMAL(10,2) NOT NULL,
   costInsumosSemanal DECIMAL(10,2) NOT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE reporteGanancia
 
 CREATE TABLE cuentaUsuario 
 (
-  idUser INT AUTO_INCREMENT PRIMARY KEY,
+  idUser INT  PRIMARY KEY,
   correoElectronico VARCHAR(100) UNIQUE NOT NULL,
   contrasena VARCHAR(255) NOT NULL,
   nombre VARCHAR(100) NOT NULL
@@ -46,21 +46,21 @@ CREATE TABLE cuentaUsuario
 
 CREATE TABLE Platillo 
 (
-  idPlatillo INT AUTO_INCREMENT PRIMARY KEY,
+  idPlatillo INT  PRIMARY KEY,
   precio DECIMAL(10,2) NOT NULL,
   nombre VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Bebida 
 (
-  idBebida INT AUTO_INCREMENT PRIMARY KEY,
+  idBebida INT  PRIMARY KEY,
   precio DECIMAL(10,2) NOT NULL,
   nombre VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Ordenes 
 (
-  idOrden INT AUTO_INCREMENT PRIMARY KEY,
+  idOrden INT  PRIMARY KEY,
   idBebida INT,
   idPlatillo INT,
   idMesa INT,
@@ -68,3 +68,4 @@ CREATE TABLE Ordenes
   FOREIGN KEY (idPlatillo) REFERENCES Platillo(idPlatillo),
   FOREIGN KEY (idMesa) REFERENCES Mesa(idMesa)
 );
+

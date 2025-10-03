@@ -1,44 +1,26 @@
 CREATE DATABASE SoftDinner;
+GO
 
 USE SoftDinner;
-
-CREATE TABLE Recibo 
-(
-  idRecibo INT  PRIMARY KEY,
-  fechaRecibo DATE NOT NULL,
-  idOrden INT NOT NULL,
-  idCliente INT NOT NULL,
-  FOREIGN KEY (idOrden) REFERENCES Ordenes(idOrden),
-  FOREIGN KEY (idCliente) REFERENCES Cliente(idCliente)
-);
+GO
 
 CREATE TABLE Mesa 
 (
-  idMesa INT  PRIMARY KEY,
-  estatusMesa ENUM('Disponible', 'Ocupada', 'Reservada') NOT NULL,
-  estatusPedidoMesa ENUM('Pendiente', 'En Proceso', 'Servido') NOT NULL,
-  numeroClientes TINYINT UNSIGNED NOT NULL
+  idMesa INT IDENTITY(1,1) PRIMARY KEY,
+  estatusMesa VARCHAR(20) NOT NULL CHECK (estatusMesa IN ('Disponible', 'Ocupada', 'Reservada')),
+  estatusPedidoMesa VARCHAR(20) NOT NULL CHECK (estatusPedidoMesa IN ('Pendiente', 'En Proceso', 'Servido')),
+  numeroClientes TINYINT NOT NULL
 );
 
 CREATE TABLE Cliente 
 (
-  idCliente INT  PRIMARY KEY,
+  idCliente INT IDENTITY(1,1) PRIMARY KEY,
   fechaCompra DATE
-);
-
-CREATE TABLE reporteGanancia 
-(
-  idCostos INT  PRIMARY KEY,
-  costAguaSemanal DECIMAL(10,2) NOT NULL,
-  costRentaSemanal DECIMAL(10,2) NOT NULL,
-  costInsumosSemanal DECIMAL(10,2) NOT NULL,
-  idRecibo INT NOT NULL,
-  FOREIGN KEY (idRecibo) REFERENCES Recibo(idRecibo)
 );
 
 CREATE TABLE cuentaUsuario 
 (
-  idUser INT  PRIMARY KEY,
+  idUser INT IDENTITY(1,1) PRIMARY KEY,
   correoElectronico VARCHAR(100) UNIQUE NOT NULL,
   contrasena VARCHAR(255) NOT NULL,
   nombre VARCHAR(100) NOT NULL
@@ -46,21 +28,21 @@ CREATE TABLE cuentaUsuario
 
 CREATE TABLE Platillo 
 (
-  idPlatillo INT  PRIMARY KEY,
+  idPlatillo INT IDENTITY(1,1) PRIMARY KEY,
   precio DECIMAL(10,2) NOT NULL,
   nombre VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Bebida 
 (
-  idBebida INT  PRIMARY KEY,
+  idBebida INT IDENTITY(1,1) PRIMARY KEY,
   precio DECIMAL(10,2) NOT NULL,
   nombre VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Ordenes 
 (
-  idOrden INT  PRIMARY KEY,
+  idOrden INT IDENTITY(1,1) PRIMARY KEY,
   idBebida INT,
   idPlatillo INT,
   idMesa INT,
@@ -69,3 +51,22 @@ CREATE TABLE Ordenes
   FOREIGN KEY (idMesa) REFERENCES Mesa(idMesa)
 );
 
+CREATE TABLE Recibo 
+(
+  idRecibo INT IDENTITY(1,1) PRIMARY KEY,
+  fechaRecibo DATE NOT NULL,
+  idOrden INT NOT NULL,
+  idCliente INT NOT NULL,
+  FOREIGN KEY (idOrden) REFERENCES Ordenes(idOrden),
+  FOREIGN KEY (idCliente) REFERENCES Cliente(idCliente)
+);
+
+CREATE TABLE reporteGanancia 
+(
+  idCostos INT IDENTITY(1,1) PRIMARY KEY,
+  costAguaSemanal DECIMAL(10,2) NOT NULL,
+  costRentaSemanal DECIMAL(10,2) NOT NULL,
+  costInsumosSemanal DECIMAL(10,2) NOT NULL,
+  idRecibo INT NOT NULL,
+  FOREIGN KEY (idRecibo) REFERENCES Recibo(idRecibo)
+);

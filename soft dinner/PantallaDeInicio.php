@@ -1,6 +1,6 @@
 
 <?php 
-$imagen = "MantelImagen.jpg";
+$imagen = "Imagenes/MantelImagen.jpg";
 $usuario = "Usuario"
   ?>
 
@@ -38,7 +38,7 @@ if (isset($_POST['usuario'])) {
 
 
 <br>
-<img src="IconoPlato.png" style="width: 200px; height: 200px; position: absolute; top: 120px; left: 660px;">
+<img src="Imagenes/IconoPlato.png" style="width: 200px; height: 200px; position: absolute; top: 120px; left: 660px;">
 
 <div style="position: absolute; top: 350px; left: 675px;">
 <button type="submit" style="margin:5px auto; width: 170px; height: 50px; font-size:20px; font-weight:bold; border-radius:10px;">Cuentas</button> <br>

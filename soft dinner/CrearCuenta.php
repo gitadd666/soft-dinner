@@ -5,12 +5,12 @@
 $bdhost="localhost";
 $bduser="root";
 $bdpass="";
-$bdname="restaurante";
+$bdname="soft_dinner";
 $conexion=mysqli_connect($bdhost,$bduser,$bdpass,$bdname);
-$query_max = mysqli_query($conexion, "SELECT MAX(id) FROM usuario");
+$query_max = mysqli_query($conexion, "SELECT MAX(id_usuario) FROM usuarios");
 $row = mysqli_fetch_array($query_max);
 $max_value = $row[0];
-$dsn = "mysql:host=localhost;dbname=restaurante;charset=utf8mb4";
+$dsn = "mysql:host=localhost;dbname=soft_dinner;charset=utf8mb4";
 
 $options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
 
@@ -32,7 +32,7 @@ $contrasenaConfirmar = $_POST['confirmar'];
 
 
 
-$sql = "SELECT * FROM usuario WHERE correo = :correo LIMIT 1";
+$sql = "SELECT * FROM usuarios WHERE correo = :correo LIMIT 1";
 
 $stmt = $pdo->prepare($sql);
 $stmt->execute([':correo' => $correo]);
@@ -48,7 +48,7 @@ else if ($contrasenaConfirmar !== $contrasena)
 }
 else
 {
-    $sql = mysqli_query($conexion, "INSERT INTO usuario (nombre, correo, contrasena) VALUES ('$nombre', '$correo', '$contrasena')");
+    $sql = mysqli_query($conexion, "INSERT INTO usuarios (nombre, correo, contrasena) VALUES ('$nombre', '$correo', '$contrasena')");
     header("Location: PantallaDeInicio.php");
     exit();
 }

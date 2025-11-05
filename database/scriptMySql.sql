@@ -85,3 +85,4 @@ CREATE TABLE IF NOT EXISTS recibos (
     fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (id_orden) REFERENCES ordenes(id_orden)
 );
+insert into Usuarios values (1, "vidal", "vidal@gmail.com", "654321");

@@ -49,7 +49,7 @@ else if ($contrasenaConfirmar !== $contrasena)
 else
 {
     $sql = mysqli_query($conexion, "INSERT INTO usuarios (nombre, correo, contrasena) VALUES ('$nombre', '$correo', '$contrasena')");
-    header("Location: PantallaDeInicio.php");
+    header("Location: InicioSesion.php");
     exit();
 }
 

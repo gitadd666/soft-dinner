@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Gastos - PC</title>
+    <style>
+        /* --- VARIABLES Y CONFIGURACIÓN --- */
+        :root {
+            --primary-red: #cc0000;
+            --border-color: #000;
+            --input-radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+
+            /* FONDO PLAID (Igual que tus diseños anteriores) */
+            background-color: var(--primary-red);
+            background-image: 
+                repeating-linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.15) 75%, rgba(0,0,0,0.15)),
+                repeating-linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.15) 75%, rgba(0,0,0,0.15));
+            background-position: 0 0, 10px 10px;
+            background-size: 30px 30px;
+            box-shadow: inset 0 0 150px rgba(0,0,0,0.7);
+        }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .main-panel {
+            /* Hacemos un panel semitransparente oscuro para que el texto blanco resalte, 
+               o usamos un contenedor sólido. En este caso, para imitar la imagen,
+               usaremos un contenedor rojo oscuro translúcido. */
+            background-color: rgba(100, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            width: 100%;
+            max-width: 900px;
+            border: 6px solid black;
+            border-radius: 30px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 20px 20px 0 rgba(0,0,0,0.4);
+            position: relative;
+        }
+
+        /* --- HEADER OVALADO (Ganancias) --- */
+        .header-oval {
+            background-color: #ff0000;
+            border: 4px solid black;
+            border-radius: 50px;
+            padding: 10px 60px;
+            margin-top: -70px; /* Para que "flote" sobre el borde superior */
+            margin-bottom: 20px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+        }
+
+        .header-text {
+            color: white;
+            font-size: 36px;
+            font-weight: 900;
+            -webkit-text-stroke: 1.5px black;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- TÍTULO SECUNDARIO (Gastos Extra) --- */
+        .sub-title {
+            font-size: 48px;
+            color: white;
+            font-weight: 900;
+            -webkit-text-stroke: 2px black;
+            text-shadow: 4px 4px 0 #000;
+            margin-bottom: 30px;
+        }
+
+        /* --- GRID DEL FORMULARIO --- */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+            gap: 25px 40px; /* Espacio vertical y horizontal */
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        /* Span 2 hace que el elemento ocupe todo el ancho (las 2 columnas) */
+        .full-width {
+            grid-column: span 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .label-text {
+            color: white;
+            font-size: 18px;
+            font-weight: 800;
+            text-shadow: 2px 2px 0 #000;
+            -webkit-text-stroke: 0.5px black;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 18px;
+            border: 3px solid black;
+            border-radius: var(--input-radius);
+            outline: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .input-field:focus {
+            transform: scale(1.02);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+
+        /* --- BOTONES INFERIORES --- */
+        .actions-container {
+            display: flex;
+            gap: 30px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .action-btn {
+            background-color: white;
+            border: 3px solid black;
+            border-radius: 20px;
+            padding: 15px 40px;
+            font-size: 20px;
+            font-weight: 900;
+            cursor: pointer;
+            box-shadow: 6px 6px 0 rgba(0,0,0,0.3);
+            transition: all 0.2s;
+            flex: 1; /* Para que tengan el mismo tamaño */
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-4px);
+            background-color: #fff8c4; /* Amarillo pálido al hover */
+            box-shadow: 10px 10px 0 rgba(0,0,0,0.3);
+        }
+
+        .action-btn:active {
+            transform: translateY(2px);
+            box-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+        }
+
+    </style>
+</head>
+<body>
+
+    <main class="main-panel">
+        
+        <div class="header-oval">
+            <span class="header-text">Ganancias</span>
+        </div>
+
+        <h1 class="sub-title">Gastos Extra</h1>
+
+        <form class="form-grid">
+            
+            <div class="input-group full-width">
+                <label class="label-text">Ingrese el Mes</label>
+                <input type="text" class="input-field" placeholder="Ej: Octubre" style="text-align: center; max-width: 50%;">
+            </div>
+
+            <div class="input-group">
+                <label class="label-text">Ingrese Luz Mensual:</label>
+                <input type="number" class="input-field" placeholder="$ 0.00">
+            </div>
+
+            <div class="input-group">
+                <label class="label-text">Ingrese Salarios Semanales:</label>
+                <input type="number" class="input-field" placeholder="$ 0.00">
+            </div>
+
+            <div class="input-group">
+                <label class="label-text">Ingrese Agua Mensual:</label>
+                <input type="number" class="input-field" placeholder="$ 0.00">
+            </div>
+
+            <div class="input-group">
+                <label class="label-text">Ingrese Insumos Semanales:</label>
+                <input type="number" class="input-field" placeholder="$ 0.00">
+            </div>
+
+            <div class="input-group">
+                <label class="label-text">Ingrese Renta Mensual:</label>
+                <input type="number" class="input-field" placeholder="$ 0.00">
+            </div>
+
+            <div class="input-group" style="justify-content: flex-end;">
+                 </div>
+
+        </form>
+
+        <div class="actions-container">
+            <button class="action-btn" type="button">Ganancias Totales</button>
+            <button class="action-btn" type="submit">Guardar/Actualizar</button>
+        </div>
+
+    </main>
+
+</body>
+</html>

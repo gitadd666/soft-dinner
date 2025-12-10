@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ganancias y Promedios - PC</title>
+    <style>
+        /* --- CONFIGURACIÓN BASE --- */
+        :root {
+            --primary-red: #cc0000; /* Rojo base de la imagen */
+            --input-bg: #ffffff;
+            --text-stroke-color: #000;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif; /* Fuente sans-serif simple como en la imagen */
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Centrado vertical */
+            padding: 20px;
+
+            /* FONDO PLAID (Cuadros Escoceses) - Ajustado para parecerse a la imagen */
+            background-color: #990000;
+            background-image: 
+                linear-gradient(90deg, rgba(200,0,0,0.5) 50%, transparent 50%),
+                linear-gradient(rgba(200,0,0,0.5) 50%, transparent 50%);
+            background-size: 80px 80px;
+            box-shadow: inset 0 0 100px rgba(0,0,0,0.8); /* Viñeta oscura en los bordes */
+        }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        /* Usamos Grid para dividir en 2 columnas en PC */
+        .main-dashboard {
+            width: 100%;
+            max-width: 1100px;
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Mitad y mitad */
+            gap: 60px; /* Espacio entre las dos columnas */
+            align-items: start;
+            position: relative;
+            padding-top: 40px;
+        }
+
+        /* --- HEADER OVALADO (Flotante al centro) --- */
+        /* Lo sacamos del flujo normal para que quede arriba al centro */
+        .header-oval-container {
+            grid-column: span 2; /* Ocupa todo el ancho */
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .header-oval {
+            background-color: #ff0000;
+            border: 3px solid black;
+            border-radius: 50%; /* Forma ovalada */
+            padding: 10px 60px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 70px;
+        }
+
+        .header-text {
+            color: white;
+            font-size: 32px;
+            font-weight: 900;
+            /* El borde negro alrededor de las letras */
+            -webkit-text-stroke: 1.5px black; 
+            letter-spacing: 1px;
+            font-family: 'Verdana', sans-serif;
+        }
+
+        /* --- COLUMNAS (Paneles) --- */
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Título de la segunda columna (Promedio) */
+        .section-title {
+            color: white;
+            font-size: 32px;
+            font-weight: 900;
+            text-align: center;
+            -webkit-text-stroke: 1.5px black;
+            text-shadow: 3px 3px 0 #000;
+            margin-bottom: 15px;
+        }
+
+        /* --- INPUTS Y LABELS --- */
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .label-text {
+            color: white; /* Texto blanco */
+            font-size: 18px;
+            font-weight: 900;
+            /* Borde negro fino para que se lea sobre el fondo rojo */
+            -webkit-text-stroke: 0.8px black; 
+            text-shadow: 2px 2px 0 black;
+            margin-left: 5px;
+        }
+
+        .custom-input {
+            width: 100%;
+            background-color: white;
+            border-radius: 12px; /* Bordes redondeados como en la imagen */
+            padding: 15px;
+            font-size: 16px;
+            border: none; /* La imagen no muestra bordes en los inputs */
+            outline: none;
+            box-shadow: 0 4px 0 rgba(0,0,0,0.2); /* Pequeña sombra para dar volumen */
+            color: #333;
+        }
+
+        /* Placeholder gris oscuro para que se vea claro */
+        .custom-input::placeholder {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .custom-input:focus {
+            transform: scale(1.01); /* Pequeño efecto al hacer clic */
+            box-shadow: 0 0 0 3px #fff, 0 0 10px rgba(0,0,0,0.5);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="main-dashboard">
+
+        <div class="header-oval-container">
+            <div class="header-oval">
+                <span class="header-text">Ganancias</span>
+            </div>
+        </div>
+
+        <div class="column">
+            
+            <div class="input-group">
+                <label class="label-text">Ganancias en el día:</label>
+                <input type="text" class="custom-input" placeholder="Ganancia total en el dia">
+            </div>
+
+            <div class="input-group">
+                <label class="label-text">Ganancias en la semana:</label>
+                <input type="text" class="custom-input" placeholder="Ganancia total en a la semana">
+            </div>
+
+            <div class="input-group">
+                <label class="label-text">Ganancias en el mes:</label>
+                <input type="text" class="custom-input" placeholder="Ganancia total en el mes">
+            </div>
+
+            <div class="input-group">
+                <label class="label-text">Ganancias en el año:</label>
+                <input type="text" class="custom-input" placeholder="Ganancia total en el año">
+            </div>
+
+        </div>
+
+        <div class="column">
+            
+            <h2 class="section-title">Promedio de Ganancias</h2>
+
+            <div class="input-group">
+                <label class="label-text">Promedio en la semana:</label>
+                <input type="text" class="custom-input" placeholder="Promedio de ganacias en a la semana">
+            </div>
+
+            <div class="input-group">
+                <label class="label-text">Promedio en el mes:</label>
+                <input type="text" class="custom-input" placeholder="Promedio de ganancias en el mes">
+            </div>
+
+            <div class="input-group">
+                <label class="label-text">Promedio en el año:</label>
+                <input type="text" class="custom-input" placeholder="Promedio de ganancias en el año">
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

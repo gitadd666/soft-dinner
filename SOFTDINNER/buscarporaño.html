@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte Más Vendidos</title>
+    <style>
+        /* --- ESTILOS GENERALES (Heredados) --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #b30000;
+            /* Patrón plaid */
+            background-image: 
+                linear-gradient(90deg, rgba(0,0,0,0.1) 50%, transparent 50%),
+                linear-gradient(rgba(0,0,0,0.1) 50%, transparent 50%);
+            background-size: 120px 120px;
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 800px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        /* --- HEADER "REPORTES" (Igual al anterior) --- */
+        .header-oval {
+            background-color: #ff0000;
+            border: 4px solid black;
+            border-radius: 50px;
+            padding: 10px 60px;
+            margin-bottom: 40px;
+            box-shadow: 0 6px 8px rgba(0,0,0,0.4);
+        }
+
+        .header-text {
+            color: white;
+            font-size: 36px;
+            font-weight: 900;
+            -webkit-text-stroke: 2px black; 
+            letter-spacing: 1px;
+        }
+
+        /* --- NUEVA SECCIÓN DE TÍTULOS APILADOS --- */
+        .title-stack {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px; /* Espacio entre las dos cajas blancas */
+            margin-bottom: 40px;
+            width: 100%;
+        }
+
+        .title-box {
+            background-color: white;
+            border: 4px solid black;
+            border-radius: 30px;
+            padding: 12px 30px;
+            text-align: center;
+            font-weight: 800;
+            color: black;
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.2);
+        }
+
+        /* Estilos específicos para la caja superior e inferior */
+        .top-title {
+            font-size: 32px;
+            width: 90%; /* Un poco más ancha */
+            max-width: 500px;
+        }
+
+        .bottom-title {
+            font-size: 28px;
+            width: 70%; /* Un poco más angosta */
+            max-width: 350px;
+            text-transform: uppercase;
+        }
+
+        /* --- ÁREA DEL BADGE (Best Seller) --- */
+        .badge-container {
+            height: 180px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+            /* Placeholder visual para la cinta */
+            font-size: 120px;
+            filter: drop-shadow(5px 5px 0px black);
+        }
+
+        /* --- GRAN CONTENEDOR BLANCO PARA LA LISTA --- */
+        .big-list-container {
+            background-color: white;
+            border: 5px solid black; /* Borde muy grueso */
+            border-radius: 35px;
+            width: 95%;
+            max-width: 600px;
+            height: 500px; /* Altura fija para que parezca un área de scroll */
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            overflow-y: auto; /* Permitir scroll si la lista es larga */
+        }
+
+        .placeholder-text {
+            color: #999;
+            font-size: 22px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="header-oval">
+            <span class="header-text">Reportes</span>
+        </div>
+
+        <div class="title-stack">
+            <div class="title-box top-title">Más vendidos</div>
+            <div class="title-box bottom-title">en el AÑO</div>
+        </div>
+
+        <div class="badge-container">
+            <span>🏅</span> 
+        </div>
+
+        <div class="big-list-container">
+            <p class="placeholder-text">Lista de alimentos más vendidos</p>
+            </div>
+
+    </div>
+
+</body>
+</html>

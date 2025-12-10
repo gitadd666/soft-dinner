@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial Detallado - PC</title>
+    <style>
+        /* --- CONFIGURACIÓN BASE --- */
+        :root {
+            --primary-red: #cc0000;
+            --border-color: #000;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+
+            /* Fondo de cuadros (Plaid) */
+            background-color: var(--primary-red);
+            background-image: 
+                repeating-linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.15) 75%, rgba(0,0,0,0.15)),
+                repeating-linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.15) 75%, rgba(0,0,0,0.15));
+            background-position: 0 0, 10px 10px;
+            background-size: 30px 30px;
+        }
+
+        /* --- HEADER --- */
+        .header-oval {
+            background-color: #ff1a1a;
+            border: 4px solid var(--border-color);
+            border-radius: 50px;
+            padding: 10px 80px;
+            margin-bottom: 30px;
+            box-shadow: 6px 6px 0 rgba(0,0,0,0.4);
+            z-index: 2;
+        }
+
+        .header-title {
+            color: white;
+            font-size: 40px;
+            font-weight: 900;
+            -webkit-text-stroke: 2px black;
+            text-shadow: 3px 3px 0 #000;
+            letter-spacing: 1px;
+        }
+
+        /* --- CONTENEDOR CENTRAL (DASHBOARD) --- */
+        .dashboard-card {
+            background-color: rgba(255, 255, 255, 0.95);
+            width: 100%;
+            max-width: 800px;
+            border: 5px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centramos todo verticalmente */
+            gap: 20px;
+            box-shadow: 15px 15px 0 rgba(0,0,0,0.3);
+        }
+
+        /* --- CONTROL DE FECHA --- */
+        .date-btn {
+            background-color: white;
+            border: 3px solid black;
+            border-radius: 15px;
+            padding: 10px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 20px;
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+        }
+
+        /* --- ETIQUETAS DE TEXTO (Labels) --- */
+        .text-label {
+            font-size: 20px;
+            font-weight: 800; /* Letra gruesa como en la imagen */
+            color: #000;
+            width: 100%;
+            text-align: left; /* Alineado a la izquierda según la imagen */
+            text-shadow: 1px 1px 0 rgba(255,255,255,0.5); /* Pequeño brillo para legibilidad */
+        }
+
+        /* Span para resaltar la fecha en el texto */
+        .date-highlight {
+            color: #cc0000; /* Rojo oscuro */
+        }
+
+        /* --- CAJA BLANCA CON LISTA (El cuadro que pediste) --- */
+        .list-box {
+            width: 100%;
+            height: 300px; /* Altura fija */
+            background-color: white;
+            border: 4px solid black; /* Borde grueso negro */
+            border-radius: 15px;
+            padding: 20px;
+            overflow-y: auto; /* Scroll si hay muchos productos */
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1); /* Sombra interna sutil */
+            
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .list-item {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 5px;
+        }
+
+        /* --- SECCIÓN INGRESO TOTAL --- */
+        .total-container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Texto a la izq, Input a la der */
+            margin-top: 10px;
+        }
+
+        .total-input {
+            border: 3px solid black;
+            border-radius: 20px;
+            padding: 5px 15px;
+            font-size: 18px;
+            width: 200px;
+            text-align: center;
+            outline: none;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header-oval">
+        <h1 class="header-title">Historial</h1>
+    </div>
+
+    <main class="dashboard-card">
+
+        <button class="date-btn">Seleccionar Fecha</button>
+
+        <div class="text-label">
+            El dia <span class="date-highlight">[Fecha]</span> se vendio:
+        </div>
+
+        <div class="list-box">
+            <div class="list-item">Producto - Precio</div>
+            <div class="list-item">Producto - Precio</div>
+            <div class="list-item">Producto - Precio</div>
+            <div class="list-item">Producto - Precio</div>
+            <div class="list-item">Producto - Precio</div>
+            <div class="list-item">Producto - Precio</div>
+            <div class="list-item" style="color: #666;">Hamburguesa - $120.00 (Ejemplo)</div>
+        </div>
+
+        <div class="total-container">
+            <div class="text-label" style="width: auto;">
+                El ingreso total es de:
+            </div>
+            <input type="text" class="total-input" value="Ingreso Total" readonly>
+        </div>
+
+    </main>
+
+</body>
+</html>

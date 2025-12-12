@@ -85,4 +85,24 @@ CREATE TABLE IF NOT EXISTS recibos (
     fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (id_orden) REFERENCES ordenes(id_orden)
 );
+
+CREATE TABLE gastos_extra (
+    id_gastos INT AUTO_INCREMENT PRIMARY KEY,
+    fecha DATETIME NOT NULL,
+    luz DECIMAL(10,2) NULL,
+    agua DECIMAL(10,2) NULL,
+    renta DECIMAL(10,2) NULL,
+    salarios DECIMAL(10,2) NULL,
+    insumos DECIMAL(10,2) NULL,
+    total DECIMAL(10,2)
+        GENERATED ALWAYS AS (
+            IFNULL(luz,0) +
+            IFNULL(agua,0) +
+            IFNULL(renta,0) +
+            IFNULL(salarios,0) +
+            IFNULL(insumos,0)
+        ) STORED
+);
+
 insert into Usuarios values (1, "vidal", "vidal@gmail.com", "654321");
+

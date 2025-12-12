@@ -1,0 +1,171 @@
+/* ======= Base / variables (mantengo los colores del mantel) ======= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap');
+
+:root{
+  --rojo-fuerte: #c30000;
+  --rojo-medio:  #a00000;
+  --rojo-oscuro: #6c0000;
+  --blanco:      #ffffff;
+  --input-bg:    #fffaf8;
+  --texto-oscuro:#111111;
+}
+
+/* ======= Fondo (sin cambios solicitados) ======= */
+body{
+  margin:0;
+  padding:0;
+  font-family: "Poppins", Arial, sans-serif;
+  text-align: center;
+  background-color: var(--rojo-fuerte);
+
+  background-image:
+    repeating-linear-gradient(
+      135deg,
+      rgba(0,0,0,0.15) 0px,
+      rgba(0,0,0,0.15) 6px,
+      transparent 6px,
+      transparent 12px
+    ),
+    linear-gradient(var(--rojo-fuerte) 0%, var(--rojo-fuerte) 50%, var(--rojo-medio) 50%, var(--rojo-medio) 100%),
+    linear-gradient(90deg, var(--rojo-fuerte) 0%, var(--rojo-fuerte) 50%, var(--rojo-medio) 50%, var(--rojo-medio) 100%);
+  background-size: 150px 150px;
+  background-blend-mode: multiply;
+  color: var(--blanco);
+}
+
+/* ======= Header ======= */
+header h1{
+  margin-top: 25px;
+  font-size: 38px;      /* Productos (igual que antes) */
+  font-weight: 900;
+  color: #b80000;
+  background: var(--blanco);
+  display: inline-block;
+  padding: 8px 25px;
+  border-radius: 25px;
+  box-shadow: 0 0 8px rgba(255,255,255,0.35);
+}
+
+/* ======= Subtítulo "Registrar" ======= 
+   - Más atractivo visualmente: Poppins, color blanco, un tamaño mayor
+   - Aproximadamente un poco más de la mitad del tamaño de Productos
+*/
+h2 {
+  margin-top: 18px;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 24px;           /* mayor que la mitad de 38 (~19), pero menor que 38 */
+  font-weight: 800;
+  color: var(--blanco);      /* blanco para resaltar sobre fondo oscuro */
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+  letter-spacing: 0.6px;
+}
+
+/* categoría (texto dinámico) */
+#categoriaSeleccionada {
+  margin-top: 6px;
+  font-size: 18px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.95);
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+/* ======= Formulario: filas = grid de 2 columnas (alineación perfecta) ======= */
+/* Cada .fila tiene dos hijos (columna item y columna precio). Esto alinea
+   exactamente las etiquetas y las cajas de edición una encima de la otra. */
+.formulario { margin-top: 28px; padding: 0 18px; }
+
+/* Hago que todas las filas usen la misma grilla: 2 columnas iguales */
+.fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  align-items: center;
+  justify-items: center;
+  margin: 16px 0;
+}
+
+/* La fila de encabezado (labels "Item" y "Precio") */
+.fila.label-row {
+  margin-bottom: 8px;
+}
+.fila.label-row label {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;         /* más grande como pediste */
+  font-weight: 800;
+  color: var(--blanco);
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
+
+/* Campos de entrada: centrados, más anchos y con texto centrado */
+input[type="text"],
+input[type="number"] {
+  width: 220px;            /* mayor ancho para mejor visual */
+  max-width: 85%;
+  padding: 12px 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 15.5px;
+  text-align: center;      /* texto centrado dentro de la caja (requisito) */
+  background: var(--input-bg);
+  color: var(--texto-oscuro);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.28);
+}
+
+/* ======= Alineación y separación específica para los encabezados (Item/Precio) ======= */
+/* La fila de etiquetas se debe marcar en el HTML como: <div class="fila label-row"> */
+.fila.label-row {
+  margin-top: 8px;
+}
+
+/* Si quieres que las etiquetas estén justo encima del centro de las cajas,
+   la grilla ya las alinea exactamente sobre cada input. */
+
+/* ======= Botón Guardar: centrado en su propia línea ======= */
+#btnGuardar {
+  display: inline-block;
+  margin: 38px auto 68px auto;   /* separarlo más abajo del Guardar */
+  background: transparent;
+  color: var(--blanco);
+  padding: 12px 30px;
+  border-radius: 24px;            /* forma pill */
+  border: 2px solid rgba(255,255,255,0.85);
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.45);
+  cursor: pointer;
+  backdrop-filter: blur(2px);
+}
+
+/* ======= Botón Regresar: estilo nuevo y colocado más abajo ======= */
+#btnRegresar {
+  display: inline-block;
+  margin: 38px auto 68px auto;   /* separarlo más abajo del Guardar */
+  background: transparent;
+  color: var(--blanco);
+  padding: 12px 30px;
+  border-radius: 24px;            /* forma pill */
+  border: 2px solid rgba(255,255,255,0.85);
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.45);
+  cursor: pointer;
+  backdrop-filter: blur(2px);
+}
+
+/* hover effects */
+#btnGuardar:hover,
+#btnRegresar:hover{
+  transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+}
+
+/* ======= Responsive (si en algún momento necesitas ampliarlo) ======= */
+@media (min-width: 1000px){
+  header h1 { font-size: 44px; }
+  h2 { font-size: 28px; }
+  input[type="text"] { width: 260px; }
+  #btnGuardar { padding: 16px 48px; font-size: 19px; }
+}

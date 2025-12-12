@@ -1,0 +1,156 @@
+/* ============================================================
+   BASE, VARIABLES Y FONDO (Consistencia con el resto del sitio)
+   El fondo ha sido corregido para usar el mismo patrón de mantel.
+============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap');
+
+:root {
+    --rojo-fuerte: #c30000;
+    --rojo-medio: #a00000;
+    --rojo-oscuro: #6c0000;
+    --blanco: #ffffff;
+    --texto-oscuro: #111111;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", Arial, sans-serif;
+    text-align: center;
+    background-color: var(--rojo-fuerte);
+    /* Patrón del mantel rojo */
+    background-image:
+        repeating-linear-gradient(135deg, rgba(0,0,0,0.15) 0px, rgba(0,0,0,0.15) 6px, transparent 6px, transparent 12px),
+        linear-gradient(var(--rojo-fuerte) 0%, var(--rojo-fuerte) 50%, var(--rojo-medio) 50%, var(--rojo-medio) 100%),
+        linear-gradient(90deg, var(--rojo-fuerte) 0%, var(--rojo-fuerte) 50%, var(--rojo-medio) 50%, var(--rojo-medio) 100%);
+    background-size: 150px 150px;
+    background-blend-mode: multiply;
+    color: var(--blanco);
+    min-height: 100vh; /* Asegura que el fondo cubra toda la pantalla */
+}
+
+/* ============================================================
+   HEADER (Títulos)
+============================================================ */
+header {
+    margin-bottom: 25px;
+}
+
+/* Estilo "pastilla" blanca para el título "Cuentas" */
+header h1 {
+    margin-top: 30px;
+    font-size: 38px;
+    font-weight: 900;
+    color: var(--rojo-fuerte); 
+    background: var(--blanco);
+    display: inline-block;
+    padding: 8px 35px;
+    border-radius: 50px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    text-transform: uppercase;
+}
+
+/* ============================================================
+   CONTENIDO PRINCIPAL (Agrupación de Mesas)
+============================================================ */
+#contenedorCuentas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px; /* Espacio entre cada tarjeta de mesa */
+    padding: 20px 0;
+    flex-grow: 1; 
+}
+
+/* Estilo para cada sección de Mesa (Tarjeta) */
+.tarjeta-mesa {
+    width: 90%;
+    max-width: 450px;
+}
+
+/* Título de la Mesa (e.g., "La Mesa 1 ha pedido:") */
+.titulo-mesa {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--blanco);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-align: left; 
+}
+
+/* CAJA BLANCA GRANDE (Lista de pedidos) */
+.caja-detalles-pedidos {
+    background: var(--blanco);
+    color: var(--texto-oscuro);
+    border-radius: 12px;
+    padding: 15px 20px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    min-height: 100px; 
+    text-align: left;
+    font-size: 16px;
+    font-weight: 600;
+    overflow-y: auto; 
+}
+
+/* Estilo para los renglones de texto inyectados */
+.caja-detalles-pedidos p {
+    margin: 8px 0;
+    border-bottom: 1px dashed #ddd; 
+    padding-bottom: 5px;
+}
+
+.caja-detalles-pedidos p:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* RENGLÓN DE TOTAL */
+.renglon-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* Display del Precio Total (La "pastilla" final) */
+.display-total {
+    background: var(--blanco);
+    color: var(--texto-oscuro);
+    padding: 8px 15px;
+    border-radius: 20px;
+    min-width: 100px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+
+/* ============================================================
+   FOOTER - BOTÓN REGRESAR (Estilo transparente/borde)
+============================================================ */
+footer {
+    margin-top: 40px;
+    padding-bottom: 40px;
+}
+
+#btnRegresar {
+    background: transparent;
+    color: var(--blanco);
+    padding: 12px 40px;
+    border-radius: 30px; 
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    font-size: 16px;
+    font-weight: 700;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.45);
+    cursor: pointer;
+    backdrop-filter: blur(2px);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+#btnRegresar:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+}

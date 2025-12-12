@@ -1,0 +1,61 @@
+body {
+  background-color: #e89b50; /* Naranja suave */
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(#a05e2a 15px, transparent 16px),
+    radial-gradient(#a05e2a 25px, transparent 26px),
+    radial-gradient(#a05e2a 10px, transparent 11px);
+  background-size: 150px 150px, 200px 200px, 100px 100px;
+  opacity: 0.4;
+}
+
+.cajaConfirmacionNuevaContra {
+  background-color: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.cajaConfirmacionNuevaContra h1 {
+  color: #5b2d0c;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.cajaConfirmacionNuevaContra p {
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.cajaConfirmacionNuevaContra button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #a05e2a;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.cajaConfirmacionNuevaContra button:hover {
+  background-color: #7c471f;
+}

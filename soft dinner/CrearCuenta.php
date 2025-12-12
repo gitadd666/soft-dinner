@@ -1,6 +1,5 @@
-
-
-<?php 
+<?php
+session_start();
 
 $bdhost="localhost";
 $bduser="root";
@@ -23,51 +22,42 @@ $correo = "";
 $contrasena = "";
 $contrasenaConfirmar = "";
 
-
 if (isset($_POST['correo']) && isset($_POST['contrasena']) && isset($_POST['confirmar']) && isset($_POST['nombre'])) {
-$nombre = $_POST['nombre'];
-$correo = $_POST['correo'];
-$contrasena = $_POST['contrasena'];
-$contrasenaConfirmar = $_POST['confirmar'];
+    $nombre = trim($_POST['nombre']);
+    $correo = trim($_POST['correo']);
+    $contrasena = $_POST['contrasena'];
+    $contrasenaConfirmar = $_POST['confirmar'];
 
+    $sql = "SELECT * FROM usuarios WHERE correo = :correo LIMIT 1";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([':correo' => $correo]);
+    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    if ($usuario) {
+        $mensaje = "Este correo ya esta en uso";
+    } else if ($contrasenaConfirmar !== $contrasena) {
+        $contrasenaMensaje = "Las contraseñas no coinciden";
+    } else {
+        // generar código y guardar datos temporales en sesión
+        $codigo = random_int(100000, 999999);
+        $_SESSION['create_nombre'] = $nombre;
+        $_SESSION['create_correo'] = $correo;
+        $_SESSION['create_contrasena'] = $contrasena;
+        $_SESSION['create_codigo'] = (string)$codigo;
 
-$sql = "SELECT * FROM usuarios WHERE correo = :correo LIMIT 1";
-
-$stmt = $pdo->prepare($sql);
-$stmt->execute([':correo' => $correo]);
-$usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-
-if ($usuario) 
-{
-    $mensaje = "Este correo ya esta en uso";
-} 
-else if ($contrasenaConfirmar !== $contrasena)
-{
-    $contrasenaMensaje = "Las contraseñas no coinciden";
+        // redirigir a la página de verificación (VerificacionCuenta.php) que enviará el correo
+        header("Location: VerificacionCuenta.php");
+        exit();
+    }
 }
-else
-{
-    $sql = mysqli_query($conexion, "INSERT INTO usuarios (nombre, correo, contrasena) VALUES ('$nombre', '$correo', '$contrasena')");
-    header("Location: InicioSesion.php");
-    exit();
-}
-
-}
-
-
-
-
-
-
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Restaurante</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Restaurante</title>
         <style>
             :root { --yellow: #F0AD69; --card-bg: #ffffff; --accent: #1976D2; }
             html,body { height:100%; margin:0; }
@@ -127,23 +117,23 @@ else
             <form method="post">
                 <div class="field">
                     <label for="nombre">Nombre</label>
-                    <input id="nombre" name="nombre" type="text" placeholder="Escriba su nombre" value="<?php echo $nombre; ?>" required>
+                    <input id="nombre" name="nombre" type="text" placeholder="Escriba su nombre" value="<?php echo htmlspecialchars($nombre); ?>" required>
                 </div>
 
                 <div class="field">
                     <label for="correo">Correo electrónico</label>
-                    <input id="correo" name="correo" type="email" placeholder="usuario@ejemplo.com" value="<?php echo $correo; ?>" required>
+                    <input id="correo" name="correo" type="email" placeholder="usuario@ejemplo.com" value="<?php echo htmlspecialchars($correo); ?>" required>
                     <p style="margin:5px auto; color: Red; font-size:16px; font-weight:bold;"><?php echo $mensaje; ?></p>
                 </div>
 
                 <div class="field">
                     <label for="contrasena">Contraseña</label>
-                    <input id="contrasena" name="contrasena" type="password" placeholder="Mínimo 6 caracteres" minlength="6" value="<?php echo $contrasena; ?>" required>
+                    <input id="contrasena" name="contrasena" type="password" placeholder="Mínimo 6 caracteres" minlength="6" value="<?php echo htmlspecialchars($contrasena); ?>" required>
                 </div>
 
                 <div class="field">
                     <label for="confirmar">Confirmar contraseña</label>
-                    <input id="confirmar" name="confirmar" type="password" placeholder="Repite la contraseña" minlength="6" value="<?php echo $contrasenaConfirmar; ?>" required>
+                    <input id="confirmar" name="confirmar" type="password" placeholder="Repite la contraseña" minlength="6" value="<?php echo htmlspecialchars($contrasenaConfirmar); ?>" required>
                 </div>
 
                 <p style="margin:5px auto; color: Red; font-size:16px; font-weight:bold;"><?php echo $contrasenaMensaje; ?></p>

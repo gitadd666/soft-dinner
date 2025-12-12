@@ -1,0 +1,147 @@
+/* ----------- CONFIGURACIÓN GENERAL ----------- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", Arial, sans-serif;
+    text-align: center;
+
+    /* Colores clave basados en tu captura */
+    --rojo-fuerte: #c30000;
+    --rojo-medio: #a00000;
+    --rojo-oscuro: #6c0000;
+}
+
+/* ----------- PATRÓN DE MANTEL (tu estilo real) ----------- */
+body {
+    background-color: var(--rojo-fuerte);
+
+    background-image:
+        /* Líneas diagonales */
+        repeating-linear-gradient(
+            135deg,
+            rgba(0,0,0,0.15) 0px,
+            rgba(0,0,0,0.15) 6px,
+            transparent 6px,
+            transparent 12px
+        ),
+
+        /* Cuadros horizontales */
+        linear-gradient(
+            var(--rojo-fuerte) 0%,
+            var(--rojo-fuerte) 50%,
+            var(--rojo-medio) 50%,
+            var(--rojo-medio) 100%
+        ),
+
+        /* Cuadros verticales */
+        linear-gradient(
+            90deg,
+            var(--rojo-fuerte) 0%,
+            var(--rojo-fuerte) 50%,
+            var(--rojo-medio) 50%,
+            var(--rojo-medio) 100%
+        );
+
+    background-size: 150px 150px;
+    background-blend-mode: multiply;
+}
+
+/* ----------- TIPOGRAFÍA MEJORADA ----------- */
+/* --- Título principal con óvalo blanco --- */
+header h1 {
+    margin-top: 25px;
+    font-size: 38px;
+    font-weight: 900;
+    color: #b80000;
+    background: white;
+    display: inline-block;
+    padding: 8px 25px;
+    border-radius: 25px;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.35);
+}
+
+h1 {
+    text-align: center;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+h2 {
+    text-align: center;
+    color: white;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+}
+
+
+h1 {
+    font-size: 38px;
+    margin-top: 25px;
+}
+
+h2 {
+    font-size: 26px;
+    margin-top: 15px;
+}
+
+/* ----------- BOTONES ----------- */
+section div {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+button {
+    padding: 12px 28px;
+    font-size: 18px;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+    background: white;
+    cursor: pointer;
+    box-shadow: 0px 3px 6px rgba(0,0,0,0.4);
+    transition: 0.2s;
+}
+
+button:hover {
+     transform: translateY(-3px);
+}
+
+/* ----------- IMAGEN DEL CHEF ----------- */
+#imagenChef {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+#imagenChef img {
+    width: 250px;
+}
+
+/* ----------- BOTÓN REGRESAR ----------- */
+footer {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+#btnRegresar {
+  display: inline-block;
+  margin: 38px auto 68px auto;   /* separarlo más abajo del Guardar */
+  background: transparent;
+  color:white;
+  padding: 12px 30px;
+  border-radius: 24px;            /* forma pill */
+  border: 2px solid rgba(255,255,255,0.85);
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.45);
+  cursor: pointer;
+  backdrop-filter: blur(2px);
+}
+
+#btnRegresar:hover {  transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5); }

@@ -1,0 +1,30 @@
+name: Validacion PHP
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  revisar-php:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+
+      - name: Validar sintaxis de archivos PHP
+        run: |
+          find . -type f -name "*.php" | while read archivo
+          do
+            echo "Revisando $archivo"
+            php -l "$archivo"
+          done

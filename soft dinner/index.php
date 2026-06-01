@@ -1,9 +1,3 @@
- <?php 
-$imagen = "Imagenes/MantelImagen.jpg";
-$usuario = "Usuario"
-?>
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>

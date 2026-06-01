@@ -17,7 +17,7 @@ $usuario = "Usuario"
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Restaurante</title>
 	<style> body {
-        background-color: #f069ce;
+        background-color: #F0AD69;
                  }
     </style>
 </head>

@@ -9,7 +9,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
         body {
-            background: linear-gradient(135deg, #F0AD69 0%, #d84370 100%);
+            background: linear-gradient(135deg, #000000 0%, #d84370 100%);
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;

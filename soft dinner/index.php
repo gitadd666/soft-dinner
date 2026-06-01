@@ -17,7 +17,7 @@ $usuario = "Usuario"
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Restaurante</title>
 	<style> body {
-        background-color: #F0AD69;
+        background-color: #ff0000;
                  }
     </style>
 </head>
@@ -30,9 +30,9 @@ if (isset($_POST['usuario'])) {
 }
 ?>
 <img src="Imagenes/CirculoMarron.png" style="width: 590px; height: 130px; position: absolute; top: 30px; left: 470px;">
-<h1 style="position: absolute; top: 35px; left: 520px;color: black; text-align: center; font-size:45px;"> Bienvenido a Cena Suave </h1>
+<h1 style="position: absolute; top: 35px; left: 520px;color: black; text-align: center; font-size:45px;"> PINCHES VIEJAS PUTAS </h1>
 <br>
-
+<h1>SHEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEESH</h1>
 <!--<img src="IconoPlato.png" style="width: 200px; height: 200px; position: absolute; top: 300px; left: 660px;"> -->
 <div style="position: absolute; top: 250px; left: 630px; text-align: center;">
 <form method="post">

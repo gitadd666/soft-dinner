@@ -4,11 +4,6 @@ $usuario = "Usuario"
 ?>
 
 
-<?php 
-
-?>
-
-
 
 <!DOCTYPE html>
 <html>

@@ -123,7 +123,7 @@ if (isset($_POST['usuario'])) {
 ?>
 
 <div class="main-container">
-    <h1>Daniel es una vrga</h1>
+    <h1>Vidal es una vrga</h1>
 
     <form method="post" class="menu-form">
         <a href="InicioSesion.php" class="btn btn-login">Iniciar Sesión</a>

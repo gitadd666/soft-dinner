@@ -9,7 +9,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
         body {
-            background: linear-gradient(135deg, #ff00f2 0%, #ff0000 100%);
+            background: linear-gradient(135deg, #00fffb 0%, #ff0000 100%);
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
@@ -123,7 +123,7 @@ if (isset($_POST['usuario'])) {
 ?>
 
 <div class="main-container">
-    <h1>Bienvenido a<br>Cena Suaves</h1>
+    <h1>PUTOS</h1>
 
     <form method="post" class="menu-form">
         <a href="InicioSesion.php" class="btn btn-login">Iniciar Sesión</a>

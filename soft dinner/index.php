@@ -9,7 +9,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
         body {
-            background: linear-gradient(135deg, #ff00f2 0%, #ff0000 100%);
+            background: linear-gradient(135deg, #ff0000 0%, #ff8400 100%);
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
@@ -123,11 +123,8 @@ if (isset($_POST['usuario'])) {
 ?>
 
 <div class="main-container">
-<<<<<<< HEAD
-    <h1>Vidal es una vrga</h1>
-=======
-    <h1>Daniel se la traga</h1>
->>>>>>> ae6f80596982cc8d37cb338b08f14f9ede9ffb08
+
+    <h1>Bienvenido a Cena Suave</h1>
 
     <form method="post" class="menu-form">
         <a href="InicioSesion.php" class="btn btn-login">Iniciar Sesión</a>
